@@ -64,3 +64,5 @@ export const Icon = styled(Feather)`
         font-size: ${RFValue(24)}px;
     `}
 `
+
+export const HighLightsCards = styled.ScrollView``
