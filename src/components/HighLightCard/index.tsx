@@ -1,25 +1,34 @@
 import React from 'react'
 import * as S from './styles'
 
-type IPropsHighLights = {
-    amount: number
+export type IPropsHighLights = {
+    title: string
+    amount: string
+    lastTransaction:string
+    type: 'up' | 'down' | 'total'
 }
 
-const HighLights = ({amount}:IPropsHighLights) => {
+const icon = {
+    up: 'arrow-up-circle',
+    down: 'arrow-down-circle',
+    total: 'dollar-sign'
+}
+
+const HighLights = ({title,lastTransaction,amount,type}:IPropsHighLights) => {
     return(
-        <S.Wrapper>
+        <S.Wrapper type={type}>
             <S.Header>
-                <S.Title>
-                    Entrada
+                <S.Title type={type}>
+                    {title}
                 </S.Title>
-                <S.Icon name="arrow-up-circle" />
+                <S.Icon name={icon[type]} type={type}/>
             </S.Header>
             <S.Footer>
-                <S.Amount>
-                    R$ {amount}
+                <S.Amount type={type}>
+                    {amount}
                 </S.Amount>
-                <S.LastTransaction>
-                    Ultima entrada dia 13 de abril
+                <S.LastTransaction type={type}>
+                    {lastTransaction}
                 </S.LastTransaction>
             </S.Footer>
         </S.Wrapper>

@@ -22,9 +22,25 @@ export function Dashboard(){
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{paddingHorizontal:24}}
             >
-                <HighLights amount={1700.1}/>
-                <HighLights amount={17.00}/>
-                <HighLights amount={17.00}/>
+                <HighLights 
+                    title="Entradas" 
+                    lastTransaction="Última entrada dia 13 de abril" 
+                    amount="1700.1"
+                    type="up"
+                />
+                <HighLights 
+                    title="Saídas" 
+                    lastTransaction="Última saída dia 03 de abril" 
+                    amount="1700.1"
+                    type="down"
+                />
+                <HighLights 
+                    title="Total" 
+                    lastTransaction="01 à 16 de abril" 
+                    amount="1700.1"
+                    type="total"
+                />
+
             </S.HighLightsCards>
         </S.Wrapper>
     )
