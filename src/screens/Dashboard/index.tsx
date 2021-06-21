@@ -1,8 +1,58 @@
 import React from 'react'
 import { HighLights } from '../../components/HighLightCard'
+import { TransactionCard } from '../../components/TransactionCard'
 import * as S from './styles'
 
 export function Dashboard(){
+
+    const data = [
+        {
+            id: '1',
+            title:"Desenvolvimento de site", 
+            type: 'positive',
+            amount:"R$ 12.000,00",
+            category :{
+                name: 'Vendas',
+                icon: 'dollar-sign'
+            },
+            date:"13/04/2020"
+        },
+        {
+            id: '2',
+            title:"Desenvolvimento de site", 
+            amount:"R$ 12.000,00",
+            type: 'negative',
+            category :{
+                name: 'Vendas',
+                icon: 'coffee'
+            },
+            date:"13/04/2020"
+        },
+        {
+            id: '3',
+            title:"Desenvolvimento de site", 
+            type: 'positive',
+            amount:"R$ 12.000,00",
+            category :{
+                name: 'Vendas',
+                icon: 'shopping-bag'
+            },
+            date:"13/04/2020"
+        },
+        {
+            id: '4',
+            title:"Desenvolvimento de site", 
+            amount:"R$ 12.000,00",
+            type: 'negative',
+            category :{
+                name: 'Vendas',
+                icon: 'shopping-bag'
+            },
+            date:"13/04/2020"
+        },
+       
+    ]
+
     return(
         <S.Wrapper>
             <S.Header>
@@ -42,6 +92,17 @@ export function Dashboard(){
                 />
 
             </S.HighLightsCards>
+
+            <S.Transactions>
+                <S.Title>Listagem</S.Title>
+                <S.TransactionList 
+                    data={data}
+                    keyExtractor={{item => item}}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({item}) => <TransactionCard data={item}/>}
+                />
+                
+            </S.Transactions>
         </S.Wrapper>
     )
 }
